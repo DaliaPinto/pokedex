@@ -8,7 +8,7 @@
                 @click="getPokemonDetails"
             >
               <img
-                  :src="selected_pokemon.sprites ? selected_pokemon.sprites.front_shiny : ''"
+                  :src="selected_pokemon.sprites ? selected_pokemon.sprites.front_default : ''"
                   class="image"
               >
               <el-row
@@ -38,15 +38,43 @@
                     </el-tag>
                   </el-col>
               </el-row>
+              <el-row
+                  :gutter="24"
+                  class="mt-1"
+              >
+                  <el-col
+                      :span="12"
+                  >
+                      <span
+                          class="details"
+                      >
+                          <strong> Position: </strong>{{ selected_pokemon.order }}
+                      </span>
+                  </el-col>
+                  <el-col
+                      :span="12"
+                  >
+                      <span
+                          class="details right"
+                      >
+                          <strong> Weight: </strong> {{ selected_pokemon.weight }}
+                      </span>
+                  </el-col>
+              </el-row>
             </div>
         </el-card>
 
         <!--modal -->
         <el-dialog
             :visible.sync="visible"
-            :title="selected_pokemon.name"
             append-to-body
         >
+            <span
+                slot="title"
+                class="name"
+            >
+                {{ selected_pokemon.order }} - {{ selected_pokemon.name }}
+            </span>
             <el-row
                 :gutter="24"
             >
@@ -54,8 +82,11 @@
                     :span="6"
                 >
                     <img
-                        :src="selected_pokemon.sprites ? selected_pokemon.sprites.front_shiny : ''"
+                        :src="selected_pokemon.sprites ? selected_pokemon.sprites.front_default : ''"
                         style="vertical-align: middle;"
+                    />
+                    <img
+                        :src="selected_pokemon.sprites ? selected_pokemon.sprites.back_default : ''"
                     />
                 </el-col>
 
@@ -66,6 +97,7 @@
                         title="Stats"
                         :column="3"
                         size="mini"
+                        class="mt-5"
                         border
                     >
                         <el-descriptions-item
@@ -210,11 +242,19 @@ export default {
 
     .name {
         color:#F56C6C;
-        size: 20px;
+        font-size: 16px;
         font-weight: 700;
+        text-transform:capitalize;
+
     }
 
     .hover {
         cursor: pointer;
+    }
+
+    .details {
+        color:#909399;
+        font-size: 12px;
+
     }
 </style>
