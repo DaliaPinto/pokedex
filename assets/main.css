@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: inherit;
+    min-height: 100%;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F2F6FC;
+}
+
+.el-header {
+    width: 100%;
+    background-color: #F56C6C;
+    line-height: 70px;
+    position: sticky;
+    z-index: 5;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.el-main {
+    margin-top: 60px;
+    width: 100%;
+    position: absolute;
+}
+
+.el-container {
+    min-height: 100%;
+}
+
+.el-header img {
+    width: 8%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.pagination {
+    margin: auto;
+    width: 25%;
+}
+
+.right {
+    float: right;
+}
